@@ -5,7 +5,6 @@ import (
 	"math/rand"
 	"time"
 )
-.
 
 func buildMatrix(tamanho int) [][]int {
 
