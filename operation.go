@@ -30,19 +30,19 @@ func subMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 	return subMatrix
 }
 
-// func multMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
+func multMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 
-// 	size_row := len(matrix01)
-// 	size_column := len(matrix01[0])
-// 	multMatrix := createMatrix(size_row, size_column)
+	size_row := len(matrix01)
+	size_column := len(matrix01[0])
+	multMatrix := createMatrix(size_row, size_column)
 
-// 	for i := 0; i < size; i++ {
-// 		for j := 0; j < size; j++ {
-// 			for k := 0; k < size; k++ {
-// 				multMatrix[i][j] += matrix01[i][k] * matrix02[k][j]
-// 			}
-// 		}
-// 	}
+	for i := 0; i < size_row; i++ {
+		for j := 0; j < size_column; j++ {
+			for k := 0; k < size_row; k++ {
+				multMatrix[i][j] += matrix01[i][k] * matrix02[k][j]
+			}
+		}
+	}
 
-// return multMatrix
-// }
+	return multMatrix
+}
