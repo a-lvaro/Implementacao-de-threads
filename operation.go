@@ -6,9 +6,6 @@ func sumMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 	size_column := len(matrix01[0])
 	sumMatrix := createMatrix(size_row, size_column)
 
-	// fmt.Printf("SIZE: %d \n", len(matrix01[0]))
-	// fmt.Println(sumMatrix)
-
 	for i := 0; i < size_row; i++ {
 		for j := 0; j < size_column; j++ {
 			sumMatrix[i][j] = matrix01[i][j] + matrix02[i][j]
