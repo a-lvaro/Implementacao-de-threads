@@ -7,71 +7,68 @@ import (
 
 func main() {
 
-	size := 10
+	size := 4
+
 	matrixA := buildRandomMatrix(size)
 	matrixB := buildRandomMatrix(size)
 
-	// teste(matrixA)
+	// SHOW MATRIX
+	fmt.Printf("\n------- MATRIXA & MATRIX B -------\n")
+	printMatrix(matrixA)
+	fmt.Printf("\n\n\n")
+	printMatrix(matrixB)
+	fmt.Printf("\n\n\n")
 
-	// fmt.Println(matrixA)
-
-	// for i := 0; i < len(matrixA); i++ {
-	// 	fmt.Println(matrixA[i : i+1])
-	// }
-
-	fmt.Println("\nSequential")
+	fmt.Printf("\n--------- SUM ---------\n")
+	// SEQUENCIAL SUM
+	fmt.Println("\nSequential SUM")
 	start := time.Now()
 
-	sumMatrix(matrixA, matrixB)
+	printMatrix(sumMatrix(matrixA, matrixB))
 
 	elapsed := time.Since(start)
-	fmt.Printf("SUM took %s", elapsed)
+	fmt.Printf("SUM took %s\n", elapsed)
+	fmt.Print("\n\n\n")
 
-	// printMatrix(matrixA)
-	fmt.Printf("\n\n")
-	// printMatrix(matrixB)
-
-	// fmt.Print("\n\n\n")
-
-	fmt.Println("\n\nCHANEL")
+	// CHANEL SUM
+	fmt.Println("\nCHANEL SUM")
 	start = time.Now()
 
 	c := make(chan [][]int)
-	go splitMatrix(matrixA, matrixB, c)
+	go threadsMatrix(matrixA, matrixB, c, "SUM")
 
-	// for v := range c {
-	// 	fmt.Println(v)
-	// }
+	for v := range c {
+		fmt.Println(v)
+	}
 
 	elapsed = time.Since(start)
-	fmt.Printf("SUM chanel took %s", elapsed)
-
+	fmt.Printf("SUM chanel took %s\n", elapsed)
 	fmt.Print("\n\n")
 
-	// ----------------------------------
-	// fmt.Println("MATRIX B")
-	// printMatrix(matrixB)
+	fmt.Printf("\n--------- SUB ---------\n")
+	// SEUQUENCIAL SUB
+	fmt.Println("\nSEUQUENTIAL SUB")
+	start = time.Now()
 
-	// fmt.Print("\n\n")
+	printMatrix(subMatrix(matrixA, matrixB))
 
-	// // SUM
-	// start := time.Now()
+	elapsed = time.Since(start)
+	fmt.Printf("SUM took %s\n", elapsed)
+	fmt.Print("\n\n")
 
-	// sum := sumMatrix(matrixA, matrixB)
+	// CHANEL SUB
+	fmt.Println("\nCHANEL SUB")
+	start = time.Now()
 
-	// elapsed := time.Since(start)
-	// fmt.Printf("\n\nSUM took %s", elapsed)
+	c = make(chan [][]int)
+	go threadsMatrix(matrixA, matrixB, c, "SUB")
 
-	// fmt.Println("SUM")
-	// printMatrix(sum)
+	for v := range c {
+		fmt.Println(v)
+	}
 
-	// fmt.Print("\n\n")
-
-	// // SUB
-	// fmt.Println("SUB")
-	// printMatrix(subMatrix(matrixA, matrixB))
-
-	// fmt.Print("\n\n")
+	elapsed = time.Since(start)
+	fmt.Printf("SUB chanel took %s\n", elapsed)
 
 	// // MULT
 	// fmt.Println("MUL")
