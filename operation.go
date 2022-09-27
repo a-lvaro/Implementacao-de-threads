@@ -2,11 +2,15 @@ package main
 
 func sumMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 
-	size := len(matrix01)
-	sumMatrix := createMatrix(size)
+	size_row := len(matrix01)
+	size_column := len(matrix01[0])
+	sumMatrix := createMatrix(size_row, size_column)
 
-	for i := 0; i < size; i++ {
-		for j := 0; j < size; j++ {
+	// fmt.Printf("SIZE: %d \n", len(matrix01[0]))
+	// fmt.Println(sumMatrix)
+
+	for i := 0; i < size_row; i++ {
+		for j := 0; j < size_column; j++ {
 			sumMatrix[i][j] = matrix01[i][j] + matrix02[i][j]
 		}
 	}
@@ -16,11 +20,12 @@ func sumMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 
 func subMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 
-	size := len(matrix01)
-	subMatrix := createMatrix(size)
+	size_row := len(matrix01)
+	size_column := len(matrix01[0])
+	subMatrix := createMatrix(size_row, size_column)
 
-	for i := 0; i < size; i++ {
-		for j := 0; j < size; j++ {
+	for i := 0; i < size_row; i++ {
+		for j := 0; j < size_column; j++ {
 			subMatrix[i][j] = matrix01[i][j] - matrix02[i][j]
 		}
 	}
@@ -28,18 +33,19 @@ func subMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 	return subMatrix
 }
 
-func multMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
+// func multMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 
-	size := len(matrix01)
-	multMatrix := createMatrix(size)
+// 	size_row := len(matrix01)
+// 	size_column := len(matrix01[0])
+// 	multMatrix := createMatrix(size_row, size_column)
 
-	for i := 0; i < size; i++ {
-		for j := 0; j < size; j++ {
-			for k := 0; k < size; k++ {
-				multMatrix[i][j] += matrix01[i][k] * matrix02[k][j]
-			}
-		}
-	}
+// 	for i := 0; i < size; i++ {
+// 		for j := 0; j < size; j++ {
+// 			for k := 0; k < size; k++ {
+// 				multMatrix[i][j] += matrix01[i][k] * matrix02[k][j]
+// 			}
+// 		}
+// 	}
 
-	return multMatrix
-}
+// return multMatrix
+// }

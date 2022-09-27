@@ -8,11 +8,11 @@ import (
 
 var Teste = 3
 
-func createMatrix(size int) [][]int {
+func createMatrix(size_row int, size_column int) [][]int {
 
-	matrix := make([][]int, size)
+	matrix := make([][]int, size_row)
 	for i := range matrix {
-		matrix[i] = make([]int, size)
+		matrix[i] = make([]int, size_column)
 	}
 
 	return matrix
@@ -20,14 +20,14 @@ func createMatrix(size int) [][]int {
 
 func buildRandomMatrix(size int) [][]int {
 
-	matrix := createMatrix(size)
+	matrix := createMatrix(size, size)
 
 	s1 := rand.NewSource(time.Now().UnixNano())
 	r1 := rand.New(s1)
 
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
-			matrix[i][j] = r1.Intn(10)
+			matrix[i][j] = r1.Intn(100)
 		}
 	}
 
