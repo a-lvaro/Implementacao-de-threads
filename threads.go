@@ -1,7 +1,7 @@
 package main
 
 func threadsMatrix(matrixA [][]int, matrixB [][]int, s chan<- [][]int, flag string) {
-	// cpu := runtime.NumCPU()
+
 	size := len(matrixA)
 
 	for i := 0; i < size; i++ {
@@ -10,9 +10,10 @@ func threadsMatrix(matrixA [][]int, matrixB [][]int, s chan<- [][]int, flag stri
 			s <- sumMatrix(matrixA[i:i+1], matrixB[i:i+1])
 		} else if flag == "SUB" {
 			s <- subMatrix(matrixA[i:i+1], matrixB[i:i+1])
+		} else if flag == "MULT" {
+			s <- multMatrix(matrixA[i:i+1], matrixB[i:i+1])
 		}
 
 	}
 	close(s)
-
 }
