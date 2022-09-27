@@ -27,7 +27,7 @@ func buildRandomMatrix(size int) [][]int {
 
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
-			matrix[i][j] = r1.Intn(100)
+			matrix[i][j] = r1.Intn(10)
 		}
 	}
 

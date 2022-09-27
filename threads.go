@@ -11,7 +11,7 @@ func threadsMatrix(matrixA [][]int, matrixB [][]int, s chan<- [][]int, flag stri
 		} else if flag == "SUB" {
 			s <- subMatrix(matrixA[i:i+1], matrixB[i:i+1])
 		} else if flag == "MULT" {
-			s <- multMatrix(matrixA[i:i+1], matrixB[i:i+1])
+			s <- multMatrix(matrixA[i:i+1], matrixB)
 		}
 
 	}

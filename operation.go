@@ -38,7 +38,7 @@ func multMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 
 	for i := 0; i < size_row; i++ {
 		for j := 0; j < size_column; j++ {
-			for k := 0; k < size_row; k++ {
+			for k := 0; k < size_column; k++ {
 				multMatrix[i][j] += matrix01[i][k] * matrix02[k][j]
 			}
 		}

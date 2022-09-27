@@ -45,7 +45,7 @@ func main() {
 
 	fmt.Printf("\n\n\n--------- SUB ---------\n")
 	// SEQUENCIAL SUB
-	fmt.Println("\nSEUQUENTIAL SUB")
+	fmt.Printf("\nSEUQUENTIAL SUB\n")
 	start = time.Now()
 
 	printMatrix(subMatrix(matrixA, matrixB))
@@ -54,7 +54,7 @@ func main() {
 	fmt.Printf("SUB took %s\n", elapsed)
 
 	// CHANEL SUB
-	fmt.Print("\n\nCHANEL SUB")
+	fmt.Printf("\n\nCHANEL SUB\n")
 	start = time.Now()
 
 	c = make(chan [][]int)
@@ -68,8 +68,8 @@ func main() {
 	fmt.Printf("SUB chanel took %s\n", elapsed)
 
 	fmt.Printf("\n\n\n--------- MULT ---------\n")
-	// SEQUENCIAL mult
-	fmt.Println("\nSEQUENTIAL MULT")
+	// SEQUENTIAL MULT
+	fmt.Printf("\nSEQUENTIAL MULT\n")
 	start = time.Now()
 
 	printMatrix(multMatrix(matrixA, matrixB))
@@ -77,4 +77,15 @@ func main() {
 	elapsed = time.Since(start)
 	fmt.Printf("MULT took %s\n", elapsed)
 	fmt.Print("\n\n")
+
+	// CHANEL MULT
+	fmt.Printf("\n\nCHANEL MULT\n")
+	start = time.Now()
+
+	c = make(chan [][]int)
+	go threadsMatrix(matrixA, matrixB, c, "MULT")
+
+	for v := range c {
+		fmt.Println(v)
+	}
 }
