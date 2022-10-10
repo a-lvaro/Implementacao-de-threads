@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func sumMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 
 	size_row := len(matrix01)
@@ -45,4 +47,30 @@ func multMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 	}
 
 	return multMatrix
+}
+
+func detMatrix(matrix01 [][]int, matrix02 [][]int) {
+
+	size_row := len(matrix01)
+	size_column := len(matrix01[0])
+
+	testMatrix := createMatrix(size_row, size_column)
+
+	j := 0
+	for k := 0; k < size_row; k++ {
+
+		for i := 0; i < size_row; i++ {
+			fmt.Println(matrix01[i][j])
+
+			if j+1 < size_column {
+				j++
+			} else {
+				j = 0
+			}
+		}
+		j = k + 1
+		fmt.Printf("\n____\n")
+	}
+
+	fmt.Println(testMatrix)
 }
