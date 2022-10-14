@@ -27,7 +27,7 @@ func buildRandomMatrix(size int) [][]int {
 
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
-			matrix[i][j] = r1.Intn(10)
+			matrix[i][j] = r1.Intn(9)
 		}
 	}
 
@@ -45,14 +45,15 @@ func printMatrix(matrix [][]int) {
 }
 
 func transpose(matrix [][]int) [][]int {
-	size := len(matrix)
-	transpose := createMatrix(size, size)
 
-	for i := 0; i < size; i++ {
-		for j := 0; j < size; j++ {
+	size_row := len(matrix)
+	size_column := len(matrix[0])
+	transpose := createMatrix(size_column, size_row)
+
+	for i := 0; i < size_row; i++ {
+		for j := 0; j < size_column; j++ {
 			transpose[j][i] = matrix[i][j]
 		}
 	}
-
 	return transpose
 }

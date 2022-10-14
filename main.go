@@ -6,24 +6,24 @@ import (
 
 func main() {
 
-	size := 3
+	size := 4
 
 	matrixA := buildRandomMatrix(size)
-	matrixB := buildRandomMatrix(size)
+	// matrixB := buildRandomMatrix(size)
 
 	// SHOW MATRIX
 	fmt.Printf("\n------- MATRIXA & MATRIX B -------\n")
 	printMatrix(matrixA)
 	fmt.Printf("\n\n\n")
-	printMatrix(matrixB)
-	fmt.Printf("\n\n\n")
+	// printMatrix(matrixB)
+	// fmt.Printf("\n\n\n")
 
 	// fmt.Printf("\n--------- SUM ---------\n")
 	// // SEQUENCIAL SUM
 	// fmt.Println("\nSequential SUM")
 	// start := time.Now()
 
-	// printMatrix(sumMatrix(matrixA, matrixB))
+	// sumMatrix(matrixA, matrixB)
 
 	// elapsed := time.Since(start)
 	// fmt.Printf("SUM took %s\n", elapsed)
@@ -88,8 +88,20 @@ func main() {
 	// 	fmt.Println(v)
 	// }
 
-	fmt.Printf("\n\n\n--------- DET ---------\n")
-	// SEQUENTIAL DETERMINANT
-	fmt.Printf("\nSEQUENTIAL DETERMINANTE\n")
-	detMatrix(matrixA, matrixB)
+	fmt.Printf("\n\n\n--------- TRANSPOSE ---------\n")
+	// SEQUENTIAL TRANSPOSE
+	// fmt.Printf("\nMATRIX TRANSPOSE\n")
+	// printMatrix(transpose(matrixA))
+
+	// CHANEL TRANSPOSE
+	// fmt.Printf("\n\nCHANEL TRANSPOSE\n")
+	// // start = time.Now()
+
+	c := make(chan [][]int)
+	go threadsMatrix(matrixA, matrixA, c, "TRAN")
+
+	for v := range c {
+		fmt.Println(v)
+	}
+
 }
