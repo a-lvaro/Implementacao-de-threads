@@ -24,6 +24,8 @@ func main() {
 	fmt.Println("\nSequential SUM")
 	start := time.Now()
 
+	c := make(chan [][]int, size)
+	go threadsMatrix(matrixA, matrixB, c, "SUM")
 	_ = sumMatrix(matrixA, matrixB)
 
 	elapsed := time.Since(start)
@@ -31,10 +33,7 @@ func main() {
 
 	// CHANEL SUM
 	fmt.Println("\n\nCHANNEL SUM")
-	start = time.Now()
-
-	c := make(chan [][]int)
-	go threadsMatrix(matrixA, matrixB, c, "SUM")
+	// start = time.Now()
 
 	for v := range c {
 		_ = v
@@ -45,7 +44,7 @@ func main() {
 
 	fmt.Printf("\n\n\n--------- SUBTRACTION ---------\n")
 	// SEQUENCIAL SUB
-	fmt.Printf("\nsequencial SUBTRACTION\n")
+	fmt.Printf("\nSEUQUENTIAL SUBTRACTION\n")
 	start = time.Now()
 
 	_ = subMatrix(matrixA, matrixB)
@@ -57,7 +56,7 @@ func main() {
 	fmt.Printf("\n\nCHANNEL SUBTRACTION\n")
 	start = time.Now()
 
-	c = make(chan [][]int)
+	c = make(chan [][]int, size)
 	go threadsMatrix(matrixA, matrixB, c, "SUB")
 
 	for v := range c {
@@ -82,7 +81,7 @@ func main() {
 	fmt.Printf("\n\nCHANEL MULTIPLICATION\n")
 	start = time.Now()
 
-	c = make(chan [][]int)
+	c = make(chan [][]int, size)
 	go threadsMatrix(matrixA, matrixB, c, "MULT")
 
 	for v := range c {
@@ -106,7 +105,7 @@ func main() {
 	fmt.Printf("\n\nCHANEL TRANSPOSE\n")
 	start = time.Now()
 
-	c = make(chan [][]int)
+	c = make(chan [][]int, size)
 	go threadsMatrix(matrixA, matrixA, c, "TRAN")
 
 	for v := range c {
