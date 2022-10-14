@@ -14,8 +14,6 @@ func threadsMatrix(matrixA [][]int, matrixB [][]int, s chan<- [][]int, flag stri
 			s <- multMatrix(matrixA[i:i+1], matrixB)
 		} else if flag == "TRAN" {
 			s <- transpose(matrixA[i : i+1])
-			// fmt.Println(matrixA[i : i+1])
-			// fmt.Println()
 		}
 
 	}

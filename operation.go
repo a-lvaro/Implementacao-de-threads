@@ -1,7 +1,5 @@
 package main
 
-type stack []int
-
 func sumMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 
 	size_row := len(matrix01)
