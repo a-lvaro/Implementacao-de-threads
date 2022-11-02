@@ -1,6 +1,6 @@
 package main
 
-func sumMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
+func sumMatrix(matrix01 [][]float64, matrix02 [][]float64) [][]float64 {
 
 	size_row := len(matrix01)
 	size_column := len(matrix01[0])
@@ -14,7 +14,7 @@ func sumMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 	return sumMatrix
 }
 
-func subMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
+func subMatrix(matrix01 [][]float64, matrix02 [][]float64) [][]float64 {
 
 	size_row := len(matrix01)
 	size_column := len(matrix01[0])
@@ -29,7 +29,7 @@ func subMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 	return subMatrix
 }
 
-func multMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
+func multMatrix(matrix01 [][]float64, matrix02 [][]float64) [][]float64 {
 
 	size_row := len(matrix01)
 	size_column := len(matrix01[0])
