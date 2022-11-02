@@ -1,4 +1,4 @@
-package main
+package trabalho
 
 import (
 	"fmt"
@@ -8,17 +8,17 @@ import (
 
 var Teste = 3
 
-func createMatrix(size_row int, size_column int) [][]int {
+func createMatrix(size_row int, size_column int) [][]float64 {
 
-	matrix := make([][]int, size_row)
+	matrix := make([][]float64, size_row)
 	for i := range matrix {
-		matrix[i] = make([]int, size_column)
+		matrix[i] = make([]float64, size_column)
 	}
 
 	return matrix
 }
 
-func buildRandomMatrix(size int) [][]int {
+func buildRandomMatrix(size int) [][]float64 {
 
 	matrix := createMatrix(size, size)
 
@@ -27,24 +27,24 @@ func buildRandomMatrix(size int) [][]int {
 
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
-			matrix[i][j] = r1.Intn(10)
+			matrix[i][j] = r1.Float64()
 		}
 	}
 
 	return matrix
 }
 
-func printMatrix(matrix [][]int) {
+func printMatrix(matrix [][]float64) {
 	size := len(matrix)
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
-			fmt.Printf("%d  ", matrix[i][j])
+			fmt.Printf("%f  ", matrix[i][j])
 		}
 		fmt.Println()
 	}
 }
 
-func transpose(matrix [][]int) [][]int {
+func transpose(matrix [][]float64) [][]float64 {
 	size := len(matrix)
 	transpose := createMatrix(size, size)
 

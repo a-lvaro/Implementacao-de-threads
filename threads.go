@@ -1,6 +1,6 @@
-package main
+package trabalho
 
-func threadsMatrix(matrixA [][]int, matrixB [][]int, s chan<- [][]int, flag string) {
+func threadsMatrix(matrixA [][]float64, matrixB [][]float64, s chan<- [][]float64, flag string) {
 
 	size := len(matrixA)
 

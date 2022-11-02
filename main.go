@@ -1,4 +1,4 @@
-package main
+package trabalho
 
 import (
 	"fmt"
@@ -13,7 +13,7 @@ func main() {
 	matrixB := buildRandomMatrix(size)
 
 	// SHOW MATRIX
-	fmt.Printf("\n------- MATRIXA & MATRIX B -------\n")
+	fmt.Printf("\n------- MATRIX A & MATRIX B -------\n")
 	printMatrix(matrixA)
 	fmt.Printf("\n\n\n")
 	printMatrix(matrixB)
@@ -33,7 +33,7 @@ func main() {
 	fmt.Println("\n\nCHANEL SUM")
 	start = time.Now()
 
-	c := make(chan [][]int)
+	c := make(chan [][]float64)
 	go threadsMatrix(matrixA, matrixB, c, "SUM")
 
 	for v := range c {
@@ -57,7 +57,7 @@ func main() {
 	fmt.Printf("\n\nCHANEL SUB\n")
 	start = time.Now()
 
-	c = make(chan [][]int)
+	c = make(chan [][]float64)
 	go threadsMatrix(matrixA, matrixB, c, "SUB")
 
 	for v := range c {
@@ -82,10 +82,14 @@ func main() {
 	fmt.Printf("\n\nCHANEL MULT\n")
 	start = time.Now()
 
-	c = make(chan [][]int)
+	c = make(chan [][]float64)
 	go threadsMatrix(matrixA, matrixB, c, "MULT")
 
 	for v := range c {
 		fmt.Println(v)
 	}
+
+	elapsed = time.Since(start)
+	fmt.Printf("MULT took %s\n", elapsed)
+	fmt.Print("\n\n")
 }
