@@ -1,4 +1,4 @@
-package trabalho
+package main
 
 func threadsMatrix(matrixA [][]float64, matrixB [][]float64, s chan<- [][]float64, flag string) {
 

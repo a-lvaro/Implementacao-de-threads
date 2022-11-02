@@ -1,4 +1,4 @@
-package trabalho
+package main
 
 func sumMatrix(matrix01 [][]float64, matrix02 [][]float64) [][]float64 {
 

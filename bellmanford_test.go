@@ -1,4 +1,4 @@
-package trabalho
+package main
 
 import (
 	"math"
