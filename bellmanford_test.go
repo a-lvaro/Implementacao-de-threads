@@ -2,8 +2,35 @@ package main
 
 import (
 	"math"
+	"math/rand"
 	"testing"
+	"time"
 )
+
+func createFloatMatrix(size_row int, size_column int) [][]float64 {
+
+	matrix := make([][]float64, size_row)
+	for i := range matrix {
+		matrix[i] = make([]float64, size_column)
+	}
+
+	return matrix
+}
+func buildRandomFloatMatrix(size int) [][]float64 {
+
+	matrix := createFloatMatrix(size, size)
+
+	s1 := rand.NewSource(time.Now().UnixNano())
+	r1 := rand.New(s1)
+
+	for i := 0; i < size; i++ {
+		for j := 0; j < size; j++ {
+			matrix[i][j] = r1.Float64()
+		}
+	}
+
+	return matrix
+}
 
 func TestBellmanFord(t *testing.T) {
 	inf := math.Inf(1)
@@ -73,7 +100,7 @@ func TestParallelBellmanFord(t *testing.T) {
 
 const size int = 1000
 
-var w = buildRandomMatrix(size)
+var w = buildRandomFloatMatrix(size)
 var d = make([]float64, size)
 var p = make([]int, size)
 
