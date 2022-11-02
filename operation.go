@@ -11,7 +11,6 @@ func sumMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 			sumMatrix[i][j] = matrix01[i][j] + matrix02[i][j]
 		}
 	}
-
 	return sumMatrix
 }
 
@@ -45,4 +44,18 @@ func multMatrix(matrix01 [][]int, matrix02 [][]int) [][]int {
 	}
 
 	return multMatrix
+}
+
+func transpose(matrix [][]int) [][]int {
+
+	size_row := len(matrix)
+	size_column := len(matrix[0])
+	transpose := createMatrix(size_column, size_row)
+
+	for i := 0; i < size_row; i++ {
+		for j := 0; j < size_column; j++ {
+			transpose[j][i] = matrix[i][j]
+		}
+	}
+	return transpose
 }

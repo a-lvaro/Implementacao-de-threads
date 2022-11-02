@@ -43,17 +43,3 @@ func printMatrix(matrix [][]int) {
 		fmt.Println()
 	}
 }
-
-func transpose(matrix [][]int) [][]int {
-
-	size_row := len(matrix)
-	size_column := len(matrix[0])
-	transpose := createMatrix(size_column, size_row)
-
-	for i := 0; i < size_row; i++ {
-		for j := 0; j < size_column; j++ {
-			transpose[j][i] = matrix[i][j]
-		}
-	}
-	return transpose
-}
