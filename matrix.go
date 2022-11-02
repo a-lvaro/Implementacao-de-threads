@@ -38,7 +38,7 @@ func printMatrix(matrix [][]int) {
 	size := len(matrix)
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
-			fmt.Printf("%f  ", matrix[i][j])
+			fmt.Printf("%d  ", matrix[i][j])
 		}
 		fmt.Println()
 	}
