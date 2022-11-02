@@ -12,6 +12,8 @@ func threadsMatrix(matrixA [][]float64, matrixB [][]float64, s chan<- [][]float6
 			s <- subMatrix(matrixA[i:i+1], matrixB[i:i+1])
 		} else if flag == "MULT" {
 			s <- multMatrix(matrixA[i:i+1], matrixB)
+		} else if flag == "TRAN" {
+			s <- transpose(matrixA[i : i+1])
 		}
 
 	}
