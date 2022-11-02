@@ -37,7 +37,7 @@ func Relax(w [][]float64, d []float64, p []int, u, v int) {
 /*
 Algoritmo de Bellman-Ford: encontra o caminho mínimo da fonte
 até todos os vértices do grafo. Retorna false se existe um ciclo
-de peso nefativo que pode ser alcançado da fonte. Caso contrário
+de peso negativo que pode ser alcançado da fonte. Caso contrário
 retorna true e produz os caminhos mínimos e seus pesos.
 
 w -> matriz de adjacência
